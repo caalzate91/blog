@@ -1,0 +1,69 @@
+transition()
+	-webkit-transition arguments
+	-moz-transition arguments
+	-ms-transition arguments
+	-o-transition arguments
+	transition arguments
+
+column-count()
+	-webkit-column-gap arguments
+	-moz-column-gap arguments
+	-ms-column-gap arguments
+	-o-column-gap arguments
+	column-gap arguments
+
+column-count()
+	-webkit-column-count arguments
+	-moz-column-count arguments
+	-ms-column-count arguments
+	-o-column-count arguments
+	column-count arguments
+
+border-radius()
+	-webkit-border-radius arguments
+	-moz-border-radius arguments
+	border-radius arguments
+
+box-shadow()
+	-webkit-box-shadow arguments
+	-moz-box-shadow arguments
+	box-shadow arguments
+
+text-shadow()
+	-webkit-text-shadow arguments
+	-moz-text-shadow arguments
+	text-shadow arguments
+
+border-box()
+    -moz-box-sizing arguments
+    -webkit-box-sizing arguments
+    box-sizing arguments
+
+animation()
+	-webkit-animation arguments
+	-moz-animation arguments
+	-ms-animation arguments
+	-o-animation arguments
+	animation arguments
+	
+background-linear-gradient(startPoint, startColor, startInterval, endColor, endInterval, deprecatedWebkitStartPoint = false, deprecatedWebkitEndPoint = false)
+	background startColor
+	if deprecatedWebkitStartPoint && deprecatedWebkitEndPoint
+		background -webkit-gradient(linear, deprecatedWebkitStartPoint, deprecatedWebkitEndPoint, color-stop(startInterval, startColor), color-stop(endInterval, endColor))
+	background -webkit-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background -moz-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background -ms-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background -o-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	background linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+	
+support-for-ie ?= true
+
+opacity(n)
+	opacity n
+	if support-for-ie
+		filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')
+
+// background-linear-gradient top, #1a8bba, 0%, #51c9e3, 100%
+
+// Colores
+amarillos = #f1cb45
